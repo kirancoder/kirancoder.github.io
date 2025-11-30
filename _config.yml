@@ -8,7 +8,12 @@ permalink: pretty
 nav:
   - name: "Home"
     link: "/"
+  - name: "About"
+    link: "/about"
   - name: "Projects"
     link: "/projects"
+  - name: "Contact"
+    link: "/contact"
   - name: "Technical Notes"
     link: "/notes/Indirect_non_linear_constrains"
+
