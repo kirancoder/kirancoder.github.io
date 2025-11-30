@@ -138,9 +138,7 @@ $$
 Expand:
 
 $$
-\nabla_x g \cdot f(x,u)
-+ \nabla_u g \cdot \dot{u}
-= 0
+\nabla_x g \cdot f(x,u) + \nabla_u g \cdot \dot{u} = 0
 $$
 
 For most re-entry constraints (heating, dynamic pressure, g-load),  
