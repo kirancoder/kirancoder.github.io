@@ -1,0 +1,205 @@
+# Handling Non-Linear Constraints in Indirect (Pontryagin) Optimal Control  
+## For Launch Vehicle (LV) / Re-Entry Trajectory Optimization
+
+Launch/re-entry vehicle (LV) trajectory problems naturally include **non-linear inequality constraints**, e.g.:
+
+- Path constraints:  
+  - Heating rate: $q̇(x,u) ≤ q̇_max$  
+  - Dynamic pressure: $q(x,u) ≤ q_max$ 
+  - g-load: $n(x,u) ≤ n_max$  
+  - AoA limits  
+  - Flight corridor boundaries  
+- State constraints:  
+  - altitude limits  
+  - velocity bounds  
+- Control bounds:  
+  - bank angle limits  
+  - thrust limits  
+  - AoA bounds
+
+Indirect (Pontryagin) methods **can** handle these constraints, but not automatically — they require applying the full Pontryagin + KKT structure.
+
+---
+
+# 1) Pure Control Constraints
+Example:  
+$$
+u \in [u_{\min}, u_{\max}]
+$$
+
+Steps:
+
+1. Compute interior optimal control from  
+   $$
+   \frac{\partial H}{\partial u} = 0.
+   $$
+
+2. If this control violates bounds:  
+   $$
+   u^* = \text{sat}(u_{\text{opt}})
+   $$
+   producing **bang–bang** or **bang–singular–bang** behavior.
+
+This part is usually straightforward in indirect methods.
+
+---
+
+# 2) Path Constraints  
+General form:
+\[
+g(x(t), u(t)) \le 0.
+\]
+
+Pontryagin requires:
+
+### Introduce a multiplier:
+\[
+H = L + \lambda^\top f + \mu(t)\,g(x,u)
+\]
+
+### Complementarity:
+\[
+\mu(t) \ge 0,\quad g(x,u) \le 0,\quad \mu(t)\,g(x,u)=0.
+\]
+
+Thus two types of arcs:
+
+---
+
+### **Unconstrained Arc**
+\[
+g(x,u) < 0, \quad \mu=0.
+\]
+Control satisfies:
+\[
+\frac{\partial H}{\partial u} = 0.
+\]
+
+---
+
+### **Active (Constrained) Arc**
+\[
+g(x,u)=0, \quad \mu>0.
+\]
+
+Now optimality becomes:
+\[
+\frac{\partial H}{\partial u}
+= \frac{\partial L}{\partial u}
++ \lambda^\top \frac{\partial f}{\partial u}
++ \mu\,\frac{\partial g}{\partial u}
+= 0.
+\]
+
+This is a **nonlinear algebraic equation** in the control and costate variables.
+
+### Constraint derivative condition  
+To remain on the constraint:
+\[
+\frac{d}{dt}g(x(t),u(t)) = 0.
+\]
+
+This yields:
+\[
+\nabla_x g \cdot f(x,u) + \nabla_u g \cdot \dot u = 0.
+\]
+
+In most re-entry constraints (heating, q-bar, g-load):  
+`g` does **not** depend on control `u`, so:
+\[
+\frac{d}{dt} g(x,u) = \nabla_x g \cdot f(x,u) = 0
+\]
+which becomes an algebraic constraint for the control.
+
+This is how you solve for the control on the constrained arc.
+
+---
+
+# 3) State Inequality Constraints
+Example:  
+\[
+h_{\min} \le h(t) \le h_{\max}
+\]
+
+Convert to path constraints:
+
+\[
+g_1 = h - h_{\max} \le 0,
+\qquad
+g_2 = h_{\min} - h \le 0.
+\]
+
+Then treat each using the path-constraint method above.
+
+---
+
+# 4) Multiple-Arc Structure  
+Most real re-entry problems require stitching together segments:
+
+Arc 1: unconstrained
+Arc 2: heating-limited (g = 0)
+Arc 3: dynamic-pressure-limited (g = 0)
+Arc 4: unconstrained to final conditions
+
+
+
+At each **switching point**, conditions hold:
+
+- state continuity  
+- costate continuity  
+- Hamiltonian continuity (for free-final-time problems)
+
+Switching times are **unknowns** in the TPBVP and must be solved.
+
+---
+
+# 5) Practical Implementation Steps
+1. Derive Hamiltonian, costate equations, and unconstrained optimal control.
+2. Identify possible active constraints (heating, q-bar, g-load, AoA).
+3. For each constraint:
+   - derive ∂g/∂x  
+   - derive the constrained-arc algebraic equation for the control.
+4. Split trajectory into arcs (unconstrained → constrained → unconstrained).
+5. Solve the resulting two-point boundary-value problem using:
+   - single shooting  
+   - double shooting  
+   - multiple shooting  
+6. Use Newton iteration to solve for:
+   - initial costates  
+   - switching times  
+   - multipliers (if included explicitly)
+
+---
+
+# 6) Why This Is Hard in Practice
+
+Re-entry constraints are **highly nonlinear** and often become active simultaneously
+(heating, q-bar, g-load all peak together).
+
+Thus the indirect TPBVP becomes:
+
+- sensitive to initialization  
+- stiff  
+- difficult to solve numerically  
+- requires tuning continuation strategies
+
+This is why most modern re-entry guidance uses **direct methods** (pseudospectral), while indirect methods are used for **structure analysis** or **verification**.
+
+---
+
+# 7) Summary Table
+
+| Constraint Type | How It Appears | How Indirect Method Handles It |
+|-----------------|-----------------|--------------------------------|
+| Control bounds | \(u\in[u_{\min},u_{\max}]\) | Project optimal control, bang–bang |
+| Path constraint | \(g(x,u)\le 0\) | Add multiplier μ, complementarity μg=0 |
+| Active arc | \(g=0,\ μ>0\) | Solve ∂H/∂u = 0 incl. μ term |
+| Feasibility on arc | derivative constraint | \(\frac{d}{dt}g=0\) to maintain constraint |
+| Switching conditions | at arc transitions | continuity of x, λ, H |
+
+---
+
+# 8) Key References (recommended)
+- Bryson & Ho — *Applied Optimal Control*  
+- Betts — *Practical Methods for Optimal Control*  
+- Re-entry papers using indirect methods (Pontryagin + path constraints)  
