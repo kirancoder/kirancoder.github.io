@@ -25,7 +25,9 @@ Launch/re-entry vehicle trajectory problems often involve **non-linear dynamics*
 ## Pontryagin’s Principle
 Pontryagin’s Maximum Principle provides the **necessary conditions** for optimality:
 $$
-\dot{x} = \frac{\partial H}{\partial \lambda}, \quad \dot{\lambda} = -\frac{\partial H}{\partial x}, \quad H = \lambda^T f(x,u)
+\dot{x} = \frac{\partial H}{\partial \lambda}, \qquad
+\dot{\lambda} = -\,\frac{\partial H}{\partial x}, \qquad
+H = \lambda^{T} f(x, u)
 $$
 
 ## Non-Linear Constraints Handling
