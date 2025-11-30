@@ -1,37 +1,39 @@
 <header class="site-header">
-  <div class="wrapper">
 
-    <!-- Site title -->
-    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">
+  <div class="navbar">
+
+    <!-- Site Title -->
+    <a class="site-title" href="{{ "/" | relative_url }}">
       {{ site.title }}
     </a>
 
-    <!-- Navigation bar -->
-    <nav class="site-nav">
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
 
       {% for item in site.nav %}
         {% if item.name == "Technical Notes" %}
 
-          <!-- Dropdown for Technical Notes -->
+          <!-- Dropdown -->
           <div class="dropdown">
-            <a class="page-link dropbtn" href="{{ item.link | relative_url }}">
+            <button class="dropbtn">
               {{ item.name }} ▾
-            </a>
+            </button>
 
             <div class="dropdown-content">
               {% assign sorted_notes = site.notes | sort: "title" %}
               {% for note in sorted_notes %}
-                <a href="{{ note.url | relative_url }}">{{ note.title }}</a>
+                <a href="{{ note.url | relative_url }}">
+                  {{ note.title }}
+                </a>
               {% endfor %}
             </div>
           </div>
 
         {% else %}
 
-          <!-- Normal nav items -->
-          <a class="page-link"
-             href="{{ item.link | relative_url }}">
-             {{ item.name }}
+          <!-- Normal nav link -->
+          <a class="nav-link" href="{{ item.link | relative_url }}">
+            {{ item.name }}
           </a>
 
         {% endif %}
@@ -40,4 +42,5 @@
     </nav>
 
   </div>
+
 </header>
