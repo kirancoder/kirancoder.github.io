@@ -12,8 +12,9 @@ nav:
     link: "/about"
   - name: "Projects"
     link: "/projects"
-  - name: "Contact"
-    link: "/contact"
   - name: "Technical Notes"
     link: "/notes/Indirect_non_linear_constrains"
+  - name: "Contact"
+    link: "/contact"
+  
 
