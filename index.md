@@ -15,7 +15,10 @@ I’m **Kiran Aralikatti**, an aspiring researcher and engineer passionate about
 
 This site highlights my **projects, research interests, publications, and journey** in aerospace engineering and machine learning.
 
-👉 Explore my work:  
-- [Projects](/projects/)  
-- [About Me](/about/)  
-- [Contact](/contact/)
+📂 Explore my work:
+
+- [Projects](projects)
+- [Technical Notes](/notes/nonlinear-constraints)
+- [About Me](about)
+- [Contact](contact)
+
