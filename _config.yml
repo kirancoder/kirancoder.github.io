@@ -1,34 +1,43 @@
 title: "Kiran M Aralikatti"
 description: "Personal website"
 theme: minima
-author: Kiran M A
+author: "Kiran M A"
+
 markdown: kramdown
 permalink: pretty
-# Navigation menu
+
+# ---------------------------
+# Navigation bar configuration
+# ---------------------------
 nav:
   - name: "Home"
     link: "/"
   - name: "About"
-    link: "/about"
+    link: "/about/"
   - name: "Projects"
-    link: "/projects"
+    link: "/projects/"
   - name: "Technical Notes"
-    link: "/notes/Indirect_non_linear_constrains"
+    link: "/notes/"      # <-- do not hardcode a file here
   - name: "Contact"
-    link: "/contact"
+    link: "/contact/"
 
+# -------------------------------------
+# Notes collection (for dropdown menu)
+# -------------------------------------
 collections:
   notes:
     output: true
     permalink: /notes/:name/
-    
+
 defaults:
   - scope:
       path: ""
       type: notes
     values:
       layout: note
+
+# -------------------------------------
+# SCSS / Minima styling
+# -------------------------------------
 sass:
   style: compressed
-
-
