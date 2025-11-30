@@ -12,9 +12,9 @@ permalink: /notes/Indirect_non_linear_constrains/
 Launch and re-entry trajectory problems naturally include **non-linear inequality constraints**, for example:
 
 - **Path constraints:**  
-  - Heating rate: $\dot{q}(x,u) \le \dot{q}_{\max}$  
-  - Dynamic pressure: $q(x,u) \le q_{\max}$  
-  - g-load: $n(x,u) \le n_{\max}$  
+  - Heating rate: $\\dot{q}(x,u) \\le \\dot{q}_{\\max}$  
+  - Dynamic pressure: $q(x,u) \\le q_{\\max}$  
+  - g-load: $n(x,u) \\le n_{\\max}$  
   - Angle-of-attack (AoA) limits  
   - Flight corridor boundaries  
 
@@ -27,7 +27,7 @@ Launch and re-entry trajectory problems naturally include **non-linear inequalit
   - Thrust limits  
   - AoA bounds  
 
-Indirect (Pontryagin) methods **can** handle these constraints, but only when the full Pontryagin + KKT conditions are applied.
+Indirect (Pontryagin) methods **can** handle these constraints, but only when the full Pontryagin + KKT structure is applied.
 
 ---
 
@@ -47,13 +47,13 @@ $$
 \frac{\partial H}{\partial u} = 0
 $$
 
-2. If it violates the bounds, saturate:
+2. If it violates bounds, saturate:
 
 $$
 u^* = \mathrm{sat}(u_{\text{opt}})
 $$
 
-This typically produces **bang–bang** or **bang–singular–bang** behavior.
+This produces **bang–bang** or **bang–singular–bang** structures.
 
 ---
 
@@ -89,7 +89,7 @@ $$
 \mu(t)\, g(x,u) = 0
 $$
 
-These produce two types of arcs:
+These conditions generate two types of arcs:
 
 ---
 
@@ -129,7 +129,7 @@ This becomes a **nonlinear algebraic equation** in $u$ and $\lambda$.
 
 ## Constraint derivative condition
 
-To stay on the constraint surface:
+To remain on the constraint manifold:
 
 $$
 \frac{d}{dt}g(x,u) = 0
@@ -143,8 +143,8 @@ $$
 = 0
 $$
 
-For most re-entry constraints (heating rate, dynamic pressure, g-load),  
-$g$ does **not** depend on control $u$:
+For most re-entry constraints (heating, dynamic pressure, g-load),  
+$g$ is **independent of control**:
 
 $$
 \frac{d}{dt} g(x,u)
@@ -152,7 +152,7 @@ $$
 = 0
 $$
 
-This equation is used to solve for the control on constrained arcs.
+This is used to compute $u$ on the constrained arc.
 
 ---
 
@@ -164,7 +164,7 @@ $$
 h_{\min} \le h(t) \le h_{\max}
 $$
 
-Convert them into path constraints:
+Convert into path constraints:
 
 $$
 g_1 = h - h_{\max} \le 0
@@ -174,7 +174,7 @@ $$
 g_2 = h_{\min} - h \le 0
 $$
 
-Then treat each via the path-constraint approach.
+Then apply the same KKT/Pontryagin treatment.
 
 ---
 
@@ -187,11 +187,11 @@ Typical re-entry trajectory structure:
 - Dynamic-pressure-limited arc ($g = 0$)  
 - Final unconstrained arc  
 
-At each switching point:
+Switching conditions:
 
-- State is continuous  
-- Costate is continuous  
-- Hamiltonian is continuous (if final time is free)
+- State continuity  
+- Costate continuity  
+- Hamiltonian continuity (free-final-time case)
 
 Switching times become **unknowns** in the TPBVP.
 
@@ -200,11 +200,11 @@ Switching times become **unknowns** in the TPBVP.
 # 5. Practical Implementation Steps
 
 1. Derive Hamiltonian and costate equations.  
-2. Identify active constraints (heating, $q$-bar, g-load, AoA).  
-3. For each constraint, compute:  
-   - $\partial g / \partial x$  
-   - The constrained-arc algebraic control equation  
-4. Split trajectory into arcs.  
+2. Identify possible active path constraints (heating, $q$-bar, g-load, AoA).  
+3. Compute:  
+   - $\\frac{\partial g}{\partial x}$  
+   - Constrained-arc algebraic control law  
+4. Split trajectory into arcs (guess structure).  
 5. Solve using:  
    - Single shooting  
    - Double shooting  
@@ -218,18 +218,18 @@ Switching times become **unknowns** in the TPBVP.
 
 # 6. Why This Is Hard in Practice
 
-Re-entry constraints are **highly nonlinear** and often activate together  
+Re-entry constraints are **highly nonlinear** and often activate simultaneously  
 (heating, dynamic pressure, g-load).
 
 This makes the indirect TPBVP:
 
 - Stiff  
-- Sensitive to initial guesses  
-- Hard to converge  
-- Dependent on continuation strategies  
+- Extremely sensitive to initialization  
+- Numerically fragile  
+- Often requiring continuation/homotopy  
 
-Hence modern re-entry guidance usually uses **direct methods** (pseudospectral),  
-while indirect methods are used for **structure analysis** and **verification**.
+Thus modern re-entry GNC generally uses **direct methods**,  
+while indirect methods are used for **analysis** or **verification**.
 
 ---
 
@@ -238,16 +238,17 @@ while indirect methods are used for **structure analysis** and **verification**.
 | Constraint Type | Representation | Indirect Method Handling |
 |-----------------|----------------|---------------------------|
 | Control bounds | $u \in [u_{\min},u_{\max}]$ | Saturation / bang–bang |
-| Path constraint | $g(x,u) \le 0$ | Add multiplier, apply $\mu g=0$ |
-| Active arc | $g=0$, $\mu>0$ | Solve $\partial H / \partial u = 0$ |
+| Path constraint | $g(x,u) \le 0$ | Add multiplier, enforce $\mu g=0$ |
+| Active arc | $g=0$, $\mu>0$ | Solve $\partial H/\partial u = 0$ |
 | Feasibility | derivative constraint | $\frac{d}{dt}g = 0$ |
-| Switching | arc transitions | continuity of $x$, $\lambda$, $H$ |
+| Switching | between arcs | continuity of $x$, $\lambda$, $H$ |
 
 ---
 
 # 8. Key References
 
-- Bryson & Ho — *Applied Optimal Control*  
-- Betts — *Practical Methods for Optimal Control*  
-- Re-entry trajectory papers using indirect (Pontryagin) methods  
+- **Bryson & Ho** — *Applied Optimal Control*  
+- **Betts** — *Practical Methods for Optimal Control*  
+- Re-entry and LV trajectory papers using Pontryagin + path constraints  
+
 
