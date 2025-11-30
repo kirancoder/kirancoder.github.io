@@ -1,3 +1,11 @@
+---
+title: "Handling Non-Linear Constraints in Indirect Optimal Control"
+layout: default
+toc: true
+permalink: /notes/Indirect_non_linear_constrains/
+---
+
+
 # Handling Non-Linear Constraints in Indirect (Pontryagin) Optimal Control  
 ## For Launch Vehicle (LV) / Re-Entry Trajectory Optimization
 
