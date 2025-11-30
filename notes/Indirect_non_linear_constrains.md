@@ -1,5 +1,5 @@
 ---
-title: "Handling Non-Linear Constraints in Indirect Optimal Control"
+title: "Indirect Method: Non-Linear Constraints"
 layout: default
 toc: true
 permalink: /notes/Indirect_non_linear_constrains/
