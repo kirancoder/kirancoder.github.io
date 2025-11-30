@@ -3,7 +3,7 @@ description: "Personal website"
 theme: minima
 author: Kiran
 markdown: kramdown
-
+permalink: pretty
 # Navigation menu
 nav:
   - name: "Home"
