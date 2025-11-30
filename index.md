@@ -18,7 +18,7 @@ This site highlights my **projects, research interests, publications, and journe
 📂 Explore my work:
 
 - [Projects](projects)
-- [Technical Notes](/notes/nonlinear-constraints)
+- [Technical Notes](/notes/Indirect_non_linear_constrains)
 - [About Me](about)
 - [Contact](contact)
 
