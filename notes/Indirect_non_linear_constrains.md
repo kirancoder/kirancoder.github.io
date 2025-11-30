@@ -1,6 +1,6 @@
 ---
 title: "Indirect Method: Non-Linear Constraints"
-layout: default
+layout: note
 toc: true
 permalink: /notes/Indirect_non_linear_constrains/
 ---
