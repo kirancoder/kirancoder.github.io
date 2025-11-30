@@ -11,4 +11,4 @@ nav:
   - name: "Projects"
     link: "/projects"
   - name: "Technical Notes"
-    link: "/notes/nonlinear-constraints"
+    link: "/notes/Indirect_non_linear_constrains"
