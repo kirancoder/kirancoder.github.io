@@ -2,6 +2,7 @@
 title: "Handling Non-Linear Constraints in Indirect Optimal Control"
 layout: default
 toc: true
+permalink: /notes/nonlinear-constraints/
 ---
 
 # Handling Non-Linear Constraints in Indirect (Pontryagin) Optimal Control
