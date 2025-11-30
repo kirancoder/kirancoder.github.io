@@ -1,7 +1,7 @@
-title: "Kiran"
+title: "Kiran M Aralikatti"
 description: "Personal website"
 theme: minima
-author: Kiran
+author: Kiran M A
 markdown: kramdown
 permalink: pretty
 # Navigation menu
@@ -16,5 +16,17 @@ nav:
     link: "/notes/Indirect_non_linear_constrains"
   - name: "Contact"
     link: "/contact"
-  
+
+collections:
+  notes:
+    output: true
+    permalink: /notes/:name/
+    
+defaults:
+  - scope:
+      path: ""
+      type: notes
+    values:
+      layout: note
+
 
