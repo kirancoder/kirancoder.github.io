@@ -1,14 +1,16 @@
+# -------------------------------------
+# Site metadata
+# -------------------------------------
 title: "Kiran M Aralikatti"
 description: "Personal website"
-theme: minima
 author: "Kiran M A"
-
+theme: minima
 markdown: kramdown
 permalink: pretty
 
-# ---------------------------
-# Navigation bar configuration
-# ---------------------------
+# -------------------------------------
+# Navigation bar
+# -------------------------------------
 nav:
   - name: "Home"
     link: "/"
@@ -17,18 +19,19 @@ nav:
   - name: "Projects"
     link: "/projects/"
   - name: "Technical Notes"
-    link: "/notes/"      # <-- do not hardcode a file here
+    link: "/notes/"
   - name: "Contact"
     link: "/contact/"
 
 # -------------------------------------
-# Notes collection (for dropdown menu)
+# Notes collection
 # -------------------------------------
 collections:
   notes:
     output: true
     permalink: /notes/:name/
 
+# Defaults for collections
 defaults:
   - scope:
       path: ""
