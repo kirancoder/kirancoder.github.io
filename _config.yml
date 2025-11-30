@@ -28,5 +28,7 @@ defaults:
       type: notes
     values:
       layout: note
+sass:
+  style: compressed
 
 
