@@ -13,3 +13,18 @@ plugins:
 markdown: kramdown
 kramdown:
   math_engine: mathjax
+
+navigation:
+  - title: "About"
+    url: /about/
+  - title: "Projects"
+    url: /projects/
+  - title: "Technical Notes"
+    url: /notes/
+  - title: "Publications"
+    url: /publications/
+  - title: "CV"
+    url: /cv/
+  - title: "Contact"
+    url: /contact/
+
