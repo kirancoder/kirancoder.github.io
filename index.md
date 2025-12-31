@@ -1,24 +1,24 @@
 ---
-layout: default
-title: Home
+layout: splash
+title: "Kiran M Aralikatti"
+excerpt: >
+  Aerospace Engineer focused on Trajectory Optimization, Guidance, Navigation & Control,
+  and Machine Learning for Space Systems.
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.4"
+  overlay_image: /assets/images/space.jpg
 ---
 
-# Welcome to My Portfolio
+## Research Interests
 
-I’m **Kiran Aralikatti**, an aspiring researcher and engineer passionate about:
+- Trajectory Optimization (Direct & Indirect Methods)
+- Optimal Control and Reinforcement Learning
+- Spacecraft GNC and Re-entry Dynamics
+- Machine Learning for Aerospace Systems
 
-- 🚀 Trajectory Optimization  
-- 🛰️ Launch Vehicle Dynamics  
-- 🤖 Optimal Control & Reinforcement Learning  
-- 🔥 Re-entry, Guidance, Navigation & Control (GNC)  
-- 📌 Machine Learning for Aerospace Systems  
+## Current Focus
+I am particularly interested in **physics-informed learning** and **optimization-based guidance**
+for space missions, including planetary landing and debris collision avoidance.
 
-This site highlights my **projects, research interests, publications, and journey** in aerospace engineering and machine learning.
-
-📂 Explore my work:
-
-- [About Me](about)
-- [Projects](projects)
-- [Technical Notes](/notes/Indirect_non_linear_constrains)
-- [Contact](contact)
-
+[View Projects →](/projects/)
