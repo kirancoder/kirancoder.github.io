@@ -2,23 +2,21 @@
 layout: splash
 title: "Kiran M Aralikatti"
 excerpt: >
-  Aerospace Engineer focused on Trajectory Optimization, Guidance, Navigation & Control,
-  and Machine Learning for Space Systems.
-header:
-  overlay_color: "#000"
-  overlay_filter: "0.4"
-  overlay_image: /assets/images/space.jpg
+  Aerospace Engineer focused on Trajectory Optimization,
+  Optimal Control, and Guidance, Navigation & Control (GNC).
 ---
 
 ## Research Interests
 
 - Trajectory Optimization (Direct & Indirect Methods)
 - Optimal Control and Reinforcement Learning
-- Spacecraft GNC and Re-entry Dynamics
+- Spacecraft Guidance, Navigation & Control
 - Machine Learning for Aerospace Systems
 
 ## Current Focus
-I am particularly interested in **physics-informed learning** and **optimization-based guidance**
-for space missions, including planetary landing and debris collision avoidance.
+
+I work on combining **physics-based optimal control** with
+**machine learning techniques** for aerospace applications,
+including planetary landing, re-entry guidance, and collision avoidance.
 
 [View Projects →](/projects/)
