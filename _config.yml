@@ -1,46 +1,15 @@
-# -------------------------------------
-# Site metadata
-# -------------------------------------
 title: "Kiran M Aralikatti"
-description: "Personal website"
-author: "Kiran M A"
-theme: minima
+description: "Trajectory Optimization | GNC | Optimal Control | Aerospace Systems"
+url: "https://kirancoder.github.io"
+baseurl: ""
+
+remote_theme: "mmistakes/minimal-mistakes"
+
+plugins:
+  - jekyll-include-cache
+  - jekyll-feed
+  - jekyll-seo-tag
+
 markdown: kramdown
-permalink: pretty
-
-# -------------------------------------
-# Navigation bar
-# -------------------------------------
-nav:
-  - name: "Home"
-    link: "/"
-  - name: "About"
-    link: "/about/"
-  - name: "Projects"
-    link: "/projects/"
-  - name: "Technical Notes"
-    link: "/notes/"
-  - name: "Contact"
-    link: "/contact/"
-
-# -------------------------------------
-# Notes collection
-# -------------------------------------
-collections:
-  notes:
-    output: true
-    permalink: /notes/:name/
-
-# Defaults for collections
-defaults:
-  - scope:
-      path: ""
-      type: notes
-    values:
-      layout: note
-
-# -------------------------------------
-# SCSS / Minima styling
-# -------------------------------------
-sass:
-  style: compressed
+kramdown:
+  math_engine: mathjax
