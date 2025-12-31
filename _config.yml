@@ -1,5 +1,9 @@
 title: "Kiran M Aralikatti"
-description: "Trajectory Optimization | GNC | Optimal Control | Aerospace Systems"
+email: "your-email@gmail.com"
+description: >
+  Aerospace Engineer working on Trajectory Optimization,
+  Guidance Navigation & Control, and Machine Learning for Space Systems.
+
 url: "https://kirancoder.github.io"
 baseurl: ""
 
@@ -14,6 +18,23 @@ markdown: kramdown
 kramdown:
   math_engine: mathjax
 
+author:
+  name: "Kiran M Aralikatti"
+  avatar: "/assets/images/profile.jpg"
+  bio: >
+    Trajectory Optimization | Optimal Control | GNC | Aerospace Systems
+  location: "India"
+  links:
+    - label: "Email"
+      icon: "fas fa-envelope"
+      url: "mailto:your-email@gmail.com"
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: "https://github.com/kirancoder"
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin"
+      url: "https://linkedin.com/in/yourprofile"
+
 navigation:
   - title: "About"
     url: /about/
@@ -27,4 +48,3 @@ navigation:
     url: /cv/
   - title: "Contact"
     url: /contact/
-
