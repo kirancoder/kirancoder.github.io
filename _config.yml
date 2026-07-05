@@ -9,6 +9,11 @@ baseurl: ""
 
 remote_theme: "mmistakes/minimal-mistakes"
 
+collections:
+  notes:
+    output: true
+    permalink: /notes/:path/
+
 plugins:
   - jekyll-include-cache
   - jekyll-feed

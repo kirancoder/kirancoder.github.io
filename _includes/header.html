@@ -10,13 +10,13 @@
     <!-- Navigation Menu -->
     <nav class="nav-menu">
 
-      {% for item in site.nav %}
-        {% if item.name == "Technical Notes" %}
+      {% for item in site.navigation %}
+        {% if item.title == "Technical Notes" %}
 
           <!-- Dropdown -->
           <div class="dropdown">
             <button class="dropbtn">
-              {{ item.name }} ▾
+              {{ item.title }} ▾
             </button>
 
             <div class="dropdown-content">
@@ -32,8 +32,8 @@
         {% else %}
 
           <!-- Normal nav link -->
-          <a class="nav-link" href="{{ item.link | relative_url }}">
-            {{ item.name }}
+          <a class="nav-link" href="{{ item.url | relative_url }}">
+            {{ item.title }}
           </a>
 
         {% endif %}

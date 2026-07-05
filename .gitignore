@@ -1,0 +1,12 @@
+# Jekyll build artifacts
+_site/
+.jekyll-cache/
+.sass-cache/
+
+# Bundler/Ruby dependencies
+.bundle/
+vendor/
+
+# OS generated files
+.DS_Store
+Thumbs.db
