@@ -29,8 +29,7 @@ excerpt: >
       </div>
       
       <div class="hero-ctas">
-        <a href="/projects/" class="cta-button primary">View Research</a>
-        <a href="/projects/" class="cta-button secondary">View Projects</a>
+        <a href="/projects/" class="cta-button primary" aria-label="View my research projects">View Research</a>
         <a href="/assets/pdf/Kiran_Aralikatti_CV.pdf" class="cta-link">Download CV</a>
       </div>
     </div>
