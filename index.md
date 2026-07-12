@@ -15,22 +15,22 @@ excerpt: >
         I develop optimization algorithms for autonomous aerospace systems using optimal control, numerical optimization, and machine learning.
       </p>
       
-      <div class="tech-stack">
-        <span class="tech-badge">Trajectory Optimization</span>
-        <span class="tech-badge">Optimal Control</span>
-        <span class="tech-badge">PINNs</span>
-        <span class="tech-badge">JAX</span>
-        <span class="tech-badge">PyTorch</span>
-        <span class="tech-badge">Python</span>
-        <span class="tech-badge">MATLAB</span>
-        <span class="tech-badge">IPOPT</span>
-        <span class="tech-badge">Sequential Convex Optimization</span>
-        <span class="tech-badge">Space Systems</span>
-      </div>
+      <ul class="tech-stack">
+        <li><span class="tech-badge">Trajectory Optimization</span></li>
+        <li><span class="tech-badge">Optimal Control</span></li>
+        <li><span class="tech-badge">PINNs</span></li>
+        <li><span class="tech-badge">JAX</span></li>
+        <li><span class="tech-badge">PyTorch</span></li>
+        <li><span class="tech-badge">Python</span></li>
+        <li><span class="tech-badge">MATLAB</span></li>
+        <li><span class="tech-badge">IPOPT</span></li>
+        <li><span class="tech-badge">Sequential Convex Optimization</span></li>
+        <li><span class="tech-badge">Space Systems</span></li>
+      </ul>
       
       <div class="hero-ctas">
         <a href="/projects/" class="cta-button primary" aria-label="View my research projects">View Research</a>
-        <a href="/assets/pdf/Kiran_Aralikatti_CV.pdf" class="cta-link">Download CV</a>
+        <a href="#" class="cta-link" title="CV file pending upload">Download CV (Coming Soon)</a>
       </div>
     </div>
   </div>
